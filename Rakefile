@@ -1,6 +1,6 @@
 require_relative "./lib/loader"
 
-namespace :aoc do
+namespace :aoc do 
   task :solve, [:day, :part] do  |task, args|
     day_class = Object.const_get("Day#{args[:day]}")
     input_file = "data/day#{args[:day]}.txt"

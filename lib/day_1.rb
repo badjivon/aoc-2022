@@ -1,20 +1,25 @@
 class Day1 < AOC
   def solve(part:)
-    data = read_input_file.map(&:to_i)
-    if part == 1
-      count(data)
-    else
-      data
-        .each_cons(3)
-        .map(&:sum)
-        .then { |data| count(data) }
-    end
-  end
+    file = read_input_file
+    elves = []
+    calories = 0
 
-  def count(data)
-    data
-      .each_cons(2)
-      .filter { |source, target|  source < target}
-      .length
+    file.each do |line|
+      calories += line.to_i 
+      if line.to_i == 0
+        elves << calories
+        calories = 0
+      end
+    end
+
+    elves << calories
+
+    if part == 1
+      elves.max
+    else
+      elves
+        .max(3)
+        .sum
+    end
   end
 end

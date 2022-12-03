@@ -7,3 +7,5 @@ source "https://rubygems.org"
 gem "rspec", "~> 3.12"
 
 gem "zeitwerk", "~> 2.6"
+
+gem 'rake', '~> 13.0', '>= 13.0.6'
